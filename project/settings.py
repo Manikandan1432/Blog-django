@@ -48,6 +48,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'blog.middleware.RedirectAuthenticatedUserMiddleware',
+    'blog.middleware.RestrictUnauthenticatedUserMiddleware'
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -145,4 +147,7 @@ LOGGING = {
         "level": "DEBUG",
     },
 }
+
+
+LOGIN_URL = '/register/'
 

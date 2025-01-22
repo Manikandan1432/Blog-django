@@ -4,18 +4,11 @@
         <div class="d-flex justify-content-center mt-5">
             <div class="d-flex gap-3 flex-column">
                 <h3>Contact Form</h3>
-                {% for fields in forms %}
+                {% include 'includes/errors.html' %}
 
-                    {% if fields.errors %}
-                    <span>{{fields.label_tag}}</span>
-                        {% for error in fields.errors %}
-                        <span class="text-danger">{{error}}</span>
-                        {% endfor %}
-                    {% endif %}
-                {% endfor %}
-                {% if error_message %}
-                <span class="alert alert-success">{{error_message}}</span>
-                {% endif %}
+<!--                {% if error_message %}-->
+<!--                <span class="alert alert-success">{{error_message}}</span>-->
+<!--                {% endif %}-->
 
                 <form method="post" class="row g-3">
                     {% csrf_token %}
