@@ -3,6 +3,7 @@ from blog.models import Datas, Category
 from faker import Faker
 from django.core.management.base import BaseCommand
 import random
+from django.contrib.auth.models import User
 class Command(BaseCommand):
     help = 'populate datas into database'
 
@@ -75,9 +76,11 @@ class Command(BaseCommand):
             "https://picsum.photos/id/20/800/400",
         ]
         category = Category.objects.all()
+        user = User.objects.all()
         for title, content, img_url in zip(titles, contents, img_urls):
             categories = random.choice(category)
-            Datas.objects.create(title=title, content=content, img_url=img_url, categories=categories)
+            users = random.choice(user)
+            Datas.objects.create(title=title, content=content, img_url=img_url, categories=categories, user=users)
 
         self.stdout.write(self.style.SUCCESS('successfully populated the datas'))
 

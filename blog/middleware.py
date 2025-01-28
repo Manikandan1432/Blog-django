@@ -10,7 +10,7 @@ class RedirectAuthenticatedUserMiddleware:
             path_to_redirect = [reverse('login'), reverse('register')]
 
             if request.path in path_to_redirect:
-                return redirect('/')
+                return redirect('index')
 
         response = self.get_response(request)
         return response

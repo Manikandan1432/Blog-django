@@ -126,6 +126,9 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     'blog/static/css'
 ]
+STATICFILES_DIRS = [
+    'blog/static/js'
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -147,7 +150,15 @@ LOGGING = {
         "level": "DEBUG",
     },
 }
+DEFAULT_FROM_EMAIL = 'yourmani@gmail.com'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = '65ce1eef5143b4'
+EMAIL_HOST_PASSWORD = '848e21ed73a2a1'
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-LOGIN_URL = '/register/'
-
+LOGIN_URL = '/login'
