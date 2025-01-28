@@ -1,0 +1,20 @@
+                {% for fields in forms %}
+
+                    {% if fields.errors %}
+                    <span>{{fields.label_tag}}</span>
+                        {% for error in fields.errors %}
+                        <span class="text-danger">{{error}}</span>
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-success">{{message}}</div>
+                    {% endfor %}
+                {% endif %}
+
+
+                {% for error in forms.non_field_errors %}
+                    <div class="alert alert-danger">{{error}}</div>
+                {% endfor %}

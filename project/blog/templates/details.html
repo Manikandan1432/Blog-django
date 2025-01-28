@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container-fluid ">
+
+        <div class="row">
+            <div class="col-lg-8">
+              <h1 class="mb-4">{{post.title}}<small>({{post.categories.name}})</small></h1>
+              <p class="text-muted">Created at {{post.created_at | date:'d-m-y'}}</p>
+              <img style='width="800" height="400"'src="{{post.formatted_img_url}}" class="img-fluid mb-4" alt="Blog Image">
+              <p>{{post.content}}</p>
+            </div>
+            <div class="col-lg-4">
+              <div class="card mt-3">
+                <div class="card-body">
+                  <h5 class="card-title">Related Posts</h5>
+                  <ul class="list-unstyled">
+                      {% for related_post in related_posts %}
+                        <li><a href="{% url 'details' slug=post.slug %}">{{related_post}}</a></li>
+                      {% endfor %}
+                  </ul>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
