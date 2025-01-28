@@ -51,10 +51,11 @@ def Contact(request):
         message = request.POST.get('message')
         logger = logging.getLogger('TESTING')
         if forms.is_valid():
-            logger.debug(forms.cleaned_data['name'], forms.cleaned_data['email'], forms.cleaned_data['message'])
-            messages.success(request, 'message has been sent')
-        else:
-            logger.debug('form submission failure')
+            pass
+        #     logger.debug(forms.cleaned_data['name'], forms.cleaned_data['email'], forms.cleaned_data['message'])
+        #     messages.success(request, 'message has been sent')
+        # else:
+        #     logger.debug('form submission failure')
         return render(request, 'contacts.html', {'forms': forms, 'name': name, 'email': email, 'message': message})
     return render(request, 'contacts.html')
 
