@@ -125,8 +125,8 @@ import os
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [
-    BASE_DIR/'blog/static/css'
+STATICFILES_DIRS = [os.path.join(
+    BASE_DIR/'blog/static/css')
 ]
 STATICFILES_DIRS = [
     BASE_DIR/'blog/static/js'
