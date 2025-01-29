@@ -1,3 +1,4 @@
+
                 {% for fields in forms %}
 
                     {% if fields.errors %}
@@ -11,6 +12,7 @@
                 {% if messages %}
                     {% for message in messages %}
                         <div class="alert alert-success">{{message}}</div>
+
                     {% endfor %}
                 {% endif %}
 
